@@ -1,7 +1,7 @@
 import "./App.css";
 
 function App() {
-  return <div>Meta Course</div>;
+  return <>Meta Course</>;
 }
 
 export default App;
