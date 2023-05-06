@@ -1,11 +1,11 @@
 import React from "react";
-import Testimonials from "./Testimonials";
+import TestimonialCard from "./TestimonialCard";
 
 function TestimonialSection() {
   return (
-    <section>
+    <section className="testimonal-section">
       <h3>Testimonials</h3>
-      <Testimonials />
+      <TestimonialCard numOfCards={3}/>
     </section>
   );
 }

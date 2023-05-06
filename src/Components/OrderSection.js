@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+import OrderMenuItem from "./OrderMenuItem";
 
 function OrderSection() {
   return (
-    <div>OrderSection</div>
-  )
+    <section className="order-section">
+      <div className="order-section--title">
+        <h3>Specials</h3>
+        <button>Online Menu</button>
+      </div>
+      <div class="order-section--menu">
+        <OrderMenuItem numOfCards={3} />
+      </div>
+    </section>
+  );
 }
 
-export default OrderSection
+export default OrderSection;
