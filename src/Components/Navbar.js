@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import navLogo from "../assets/Logo.svg";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 function Navbar() {
   const navRef = useRef();
   const showNavbar = () => {
@@ -10,23 +11,24 @@ function Navbar() {
     <header>
       <img src={navLogo} alt="Logo" className="nav-logo" />
       <nav ref={navRef}>
-        <a href="/#" className="nav-link">
+        <Link to="/" className="nav-link">
           Home
-        </a>
-        <a href="/#" className="nav-link">
+        </Link>
+        <Link to="/menu" className="nav-link">
           Menu
-        </a>
-        <a href="/#" className="nav-link">
+        </Link>
+        <Link to="/about" className="nav-link">
           About
-        </a>
-        <a href="/#" className="nav-link">
+        </Link>
+        <Link to="/reservation" className="nav-link">
           Reservation
-        </a>
-        <a href="/#" className="nav-link">
+        </Link>
+        <Link to="/order" className="nav-link">
           Order Online
-        </a>
-        <button className="login-button">Log In</button>
-
+        </Link>
+        <Link to="/login">
+          <button className="login-button">Log In</button>
+        </Link>
         <div className="nav-ctrl-btn nav-close" onClick={showNavbar}>
           <FaTimes />
         </div>

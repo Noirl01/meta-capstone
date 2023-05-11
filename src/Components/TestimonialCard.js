@@ -4,6 +4,7 @@ import testimonialImgB from "../assets/testimonial2.jpg";
 import testimonialImgC from "../assets/testimonial3.jpg";
 import yellowStar from "../assets/yellowstar.svg";
 import greyStar from "../assets/graystar.svg";
+
 const data = [
   {
     name: "Maria San Paolo",
@@ -22,7 +23,7 @@ const data = [
     rating: 4,
     comment: "Great experience all over the place, Only the dessert was fine.",
     image: testimonialImgC,
-  },
+  }
 ];
 function TestimonialCard({ numOfCards }) {
   const starsGenerator = (rating) => {
@@ -31,10 +32,14 @@ function TestimonialCard({ numOfCards }) {
     console.log("hi");
     for (let i = 0; i < 5; i++) {
       if (stars > 0) {
-        ratingStars.push(<img src={yellowStar} alt="Yellow Star" className="yellow-star"/>);
+        ratingStars.push(
+          <img src={yellowStar} alt="Yellow Star" className="yellow-star" />
+        );
         stars--;
       } else {
-        ratingStars.push(<img src={greyStar} alt="Grey Star" className="grey-star"/>);
+        ratingStars.push(
+          <img src={greyStar} alt="Grey Star" className="grey-star" />
+        );
       }
     }
     return ratingStars;
@@ -56,8 +61,8 @@ function TestimonialCard({ numOfCards }) {
               className="testimonial-img"
             />
             <div className="testimonial-comment">
-            <h3 className="testimonial-name">{item.name}</h3>
-            <q className="">{item.comment}</q>
+              <h3 className="testimonial-name">{item.name}</h3>
+              <q className="">{item.comment}</q>
             </div>
           </div>
         </div>
