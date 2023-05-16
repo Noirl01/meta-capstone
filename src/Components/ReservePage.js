@@ -1,9 +1,29 @@
-import React from 'react'
+import React, {  useState } from "react";
+import restaurantImg from "../assets/restaurant.jpg";
+import ReservationForm from "./ReservationForm";
 
 function ReservePage() {
+  const viewsArray = [
+    "Reservation",
+    "Contact Information",
+    "Reservation Complete",
+  ];
+  const [currentView, setCurrentView] = useState(0);
   return (
-    <div>ReservePage</div>
-  )
+    <div className="reservation">
+      <div className="reservation-section1">
+        <ReservationForm
+          currentView={currentView}
+          setCurrentView={setCurrentView}
+        >
+          <h2 className="reservation-title">{viewsArray[currentView]}</h2>
+        </ReservationForm>
+      </div>
+      <div className="reservation-section2">
+        <img src={restaurantImg} alt="restaurant" />
+      </div>
+    </div>
+  );
 }
 
-export default ReservePage
+export default ReservePage;

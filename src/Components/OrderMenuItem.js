@@ -28,7 +28,6 @@ const data = [
 ];
 
 function OrderMenuItem({ numOfCards }) {
-  console.log(data);
   return data.slice(0, numOfCards).map((item) => (
     <div className="order-card" key={item.name}>
       <img src={item.image} alt={item.name} className="order-item--img"/>
@@ -40,7 +39,7 @@ function OrderMenuItem({ numOfCards }) {
       <div className="order-item--footer">
         <button className="order-item--button">
           <strong>Order a Delivery</strong>
-          <span class="order-item--ordericon">
+          <span className="order-item--ordericon">
             <svg
               width="30"
               height="22"

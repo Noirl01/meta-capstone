@@ -8,7 +8,7 @@ function OrderSection() {
         <h3>Specials</h3>
         <button>Online Menu</button>
       </div>
-      <div class="order-section--menu">
+      <div className="order-section--menu">
         <OrderMenuItem numOfCards={3} />
       </div>
     </section>

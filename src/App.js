@@ -12,7 +12,7 @@ import LoginPage from "./Components/LoginPage";
 
 function App() {
   return (
-    <div class="container">
+    <div className="container">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />

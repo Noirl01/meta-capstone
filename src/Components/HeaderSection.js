@@ -3,8 +3,8 @@ import HeroImage from "../assets/hero.jpg";
 import { Link } from "react-router-dom";
 function HeaderSection() {
   return (
-    <section class="hero-section">
-      <div class="hero-1">
+    <section className="hero-section">
+      <div className="hero-1">
         <h1>Little Lemon</h1>
         <h3>Chicago</h3>
         <p>
@@ -15,7 +15,7 @@ function HeaderSection() {
           <button>Reserve a Table</button>
         </Link>
       </div>
-      <div class="hero-2">
+      <div className="hero-2">
         <img src={HeroImage} alt="restaurant chef" />
       </div>
     </section>

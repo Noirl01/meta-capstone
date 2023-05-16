@@ -29,25 +29,24 @@ function TestimonialCard({ numOfCards }) {
   const starsGenerator = (rating) => {
     let stars = rating;
     let ratingStars = [];
-    console.log("hi");
     for (let i = 0; i < 5; i++) {
       if (stars > 0) {
         ratingStars.push(
-          <img src={yellowStar} alt="Yellow Star" className="yellow-star" />
+          <img src={yellowStar} alt="Yellow Star" className="yellow-star" key={rating * Math.random()}/>
         );
         stars--;
       } else {
         ratingStars.push(
-          <img src={greyStar} alt="Grey Star" className="grey-star" />
+          <img src={greyStar} alt="Grey Star" className="grey-star" key={rating * Math.random()}/>
         );
       }
     }
     return ratingStars;
   };
   return (
-    <div class="testimonial-cards">
+    <div className="testimonial-cards">
       {data.slice(0, numOfCards).map((item) => (
-        <div className="testimonial-card">
+        <div className="testimonial-card" key={item.name}>
           <div className="testimonial-rating--section1">
             <h4 className="testimonial-title">Rating</h4>
             <div className="testimonial-stars">

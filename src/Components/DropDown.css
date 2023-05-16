@@ -1,0 +1,132 @@
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: #edefee;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  padding: 0.1em;
+  cursor: pointer;
+  position: relative;
+  flex: 1 1 0;
+}
+
+.dropdown-select:hover {
+  background: rgba(237, 239, 238, 0.05);
+}
+
+.dropdown-select {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.drop-title {
+  display: block;
+  padding: 0.6 0.6em;
+  color: #526d5a;
+  font-weight: 700;
+  margin: 5 5px;
+  white-space: nowrap;
+}
+.drop-down--icon svg {
+  fill: #526d5a;
+}
+.drop-down--icon--active svg {
+  fill: #edefee;
+}
+.drop-arrow svg {
+  display: block;
+  fill: #526d5a;
+  transition: 0.3s;
+}
+
+.drop-arrow--rotate svg{
+  transform: rotate(180deg);
+  fill: #edefee;
+}
+
+
+.drop-down--selected {
+  background-color: #526d5a;
+}
+
+.drop-icon--active {
+  fill: white;
+}
+.drop-down--title-selected {
+  color: #edefee;
+}
+.dropdown-menu {
+  position: absolute;
+  background: #edefee;
+  display: flex;
+  top: 105%;
+  list-style: none;
+  flex-direction: row;
+  width: 95%;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  z-index: 100000;
+}
+
+.dropdown-hidden {
+  display: none;
+}
+.dropdown-menu li {
+  color: #526d5a;
+  font-weight: 700;
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px dashed #d8d8d8;
+font-size: 0.8em;
+  align-self: center;
+  margin: 0 auto;
+
+}
+
+.dropdown-menu--section1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  flex: 1;
+}
+.dropdown-menu--section1 li {
+  border-right: 1px dashed #d8d8d8;
+}
+.dropdown-menu--section1 li:first-child {
+  border-right: 0px;
+}
+.dropdown-menu--section1 li:last-child {
+  border-bottom: 0px;
+  border-right: 0px;
+}
+.dropdown-menu--section1 li:hover {
+  background-color: #526d5a;
+  color: #edefee;
+  border-radius: 10px;
+}
+.dropdown-menu--section2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  flex: 1;
+}
+.dropdown-menu--section2 li:hover {
+  background-color: #526d5a;
+  color: #edefee;
+  border-radius: 10px;
+}
+.dropdown-menu--section2 li:last-child {
+  border-bottom: 0px;
+}
