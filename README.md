@@ -54,13 +54,11 @@ This App was created using create-react-app therefore all commands is as follow.
 
 ## Project Directory Tree
 
-````bash
+```bash
 ├── README.md
 ├── package-lock.json
 ├── package.json
 ├── public
-│   ├── Logo .png:Zone.Identifier
-│   ├── cropimage2762.ico:Zone.Identifier
 │   ├── favicon.ico
 │   ├── index.html
 │   ├── logo192.png
@@ -103,27 +101,18 @@ This App was created using create-react-app therefore all commands is as follow.
     │   ├── Logo.svg
     │   ├── branch.svg
     │   ├── bruchetta.jpg
-    │   ├── calendar-clock.svg:Zone.Identifier
-    │   ├── calendar-o.svg:Zone.Identifier
-    │   ├── chair-solid.svg:Zone.Identifier
     │   ├── chair.svg
-    │   ├── chair.svg:Zone.Identifier
     │   ├── chef.png
     │   ├── chefs.png
-    │   ├── chevron-down (2).svg:Zone.Identifier
     │   ├── date.svg
     │   ├── dropdownarrow.svg
     │   ├── footerlogo.png
-    │   ├── glass-cheers-solid.svg:Zone.Identifier
     │   ├── graystar.svg
     │   ├── greeksalad.jpg
     │   ├── guests.svg
     │   ├── hero.jpg
     │   ├── lemondessert.jpg
-    │   ├── map-marker.svg:Zone.Identifier
-    │   ├── occasion (2).svg:Zone.Identifier
     │   ├── occasion.svg
-    │   ├── occasion.svg:Zone.Identifier
     │   ├── restaurant.jpg
     │   ├── restaurant.png
     │   ├── seating.svg
@@ -131,11 +120,9 @@ This App was created using create-react-app therefore all commands is as follow.
     │   ├── testimonial2.jpg
     │   ├── testimonial3.jpg
     │   ├── time.svg
-    │   ├── users (1).svg:Zone.Identifier
     │   └── yellowstar.svg
     ├── index.js
     ├── main.css
     ├── reportWebVitals.js
     └── setupTests.js
-    ```
-````
+```
