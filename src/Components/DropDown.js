@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { ReactComponent as DropDownArrow } from "../assets/dropdownarrow.svg";
-function DropDown({ data, setData }) {
+function DropDown({ data, setData, children }) {
   const dropDownMenu = useRef(null);
   const toggleDropDown = () => {
     if (dropDownMenu.current.classList.contains("dropdown-hidden")) {
@@ -9,21 +9,23 @@ function DropDown({ data, setData }) {
       dropDownMenu.current.classList.add("dropdown-hidden");
     }
   };
-  const clickHandler = (event)=>{
-    setData((prevState)=>{
-      return {...prevState, currentValue: event.target.innerText}
-    })
-  }
+  const clickHandler = (event) => {
+    setData((prevState) => {
+      return { ...prevState, currentValue: event.target.innerText };
+    });
+  };
 
   return (
     <div
       className={
-        !!data.currentValue
-          ? "dropdown drop-down--selected"
-          : "dropdown"
+        !!data.currentValue ? "dropdown drop-down--selected" : "dropdown"
       }
       onClick={toggleDropDown}
+      aria-label={data.placeHolder}
+      aria-required="true"
+      data-testid="dropdown-test"
     >
+      {children}
       <div className="dropdown-select">
         <div
           className={
@@ -36,7 +38,7 @@ function DropDown({ data, setData }) {
         </div>
         <div
           className={
-             !!data.currentValue
+            !!data.currentValue
               ? "drop-title drop-down--title-selected"
               : "drop-title"
           }
@@ -45,18 +47,32 @@ function DropDown({ data, setData }) {
         </div>
         <div
           className={
-            !!data.currentValue
-              ? "drop-arrow drop-arrow--rotate"
-              : "drop-arrow"
+            !!data.currentValue ? "drop-arrow drop-arrow--rotate" : "drop-arrow"
           }
         >
           <DropDownArrow />
         </div>
       </div>
       <ul className="dropdown-hidden dropdown-menu" ref={dropDownMenu}>
-        <div className="dropdown-menu--section1">{Array.from(data.firstList).map((e,i)=><li key={e} value={i} onClick={clickHandler}>{e}</li>)}</div>
+        {data.firstList ? <div className="dropdown-menu--section1">
+        {Array.from(data.firstList).map((e, i) => (
+            <li key={e} value={i} onClick={clickHandler}>
+              {e}
+            </li>
+          ))}
+        </div> : ""}
         {data.secondList ? (
-          <div className="dropdown-menu--section2">{Array.from(data.secondList).map((e, i)=><li key={e} value={i+data.firstList.length} onClick={clickHandler}>{e}</li>)}</div>
+          <div className="dropdown-menu--section2">
+            {Array.from(data.secondList).map((e, i) => (
+              <li
+                key={e}
+                value={i + data.firstList.length}
+                onClick={clickHandler}
+              >
+                {e}
+              </li>
+            ))}
+          </div>
         ) : (
           ""
         )}

@@ -32,7 +32,7 @@ function OrderMenuItem({ numOfCards }) {
     <div className="order-card" key={item.name}>
       <img src={item.image} alt={item.name} className="order-item--img"/>
       <div className="order-item--header">
-        <h5 className="order-item--name">{item.name}</h5>
+        <h5 className="order-item--name" data-testid="order-item--name">{item.name}</h5>
         <h5 className="order-item--price">{item.price}</h5>
       </div>
       <p className="order-item--desc">{item.description}</p>

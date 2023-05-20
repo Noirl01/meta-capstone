@@ -8,11 +8,16 @@ import AboutPage from "./Components/AboutPage";
 import ReservePage from "./Components/ReservePage";
 import OrderPage from "./Components/OrderPage";
 import LoginPage from "./Components/LoginPage";
-
+import { TimeProvider } from "./Context/TimeContext";
 
 function App() {
+  // const initialState =  {
+    
+  // }
+  // const [state,dispatch] = useReducer(reducer, initialState);
   return (
     <div className="container">
+      <TimeProvider>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -23,6 +28,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
+      </TimeProvider>
     </div>
   );
 }

@@ -46,7 +46,7 @@ function TestimonialCard({ numOfCards }) {
   return (
     <div className="testimonial-cards">
       {data.slice(0, numOfCards).map((item) => (
-        <div className="testimonial-card" key={item.name}>
+        <div className="testimonial-card" key={item.name} data-testid="testimonial-card">
           <div className="testimonial-rating--section1">
             <h4 className="testimonial-title">Rating</h4>
             <div className="testimonial-stars">

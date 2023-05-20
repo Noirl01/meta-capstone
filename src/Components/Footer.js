@@ -47,6 +47,7 @@ function Footer() {
               href="https://www.facebook.com/"
               target="_blank"
               rel="noreferrer"
+              data-testid="footer-test-social"
             >
               <Icon icon="ic:baseline-facebook" />
             </a>

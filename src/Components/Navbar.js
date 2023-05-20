@@ -11,23 +11,23 @@ function Navbar() {
     <header>
       <img src={navLogo} alt="Logo" className="nav-logo" />
       <nav ref={navRef}>
-        <Link to="/" className="nav-link">
+        <Link to="/" className="nav-link" onClick={showNavbar}>
           Home
         </Link>
-        <Link to="/menu" className="nav-link">
+        <Link to="/menu" className="nav-link" onClick={showNavbar}>
           Menu
         </Link>
-        <Link to="/about" className="nav-link">
+        <Link to="/about" className="nav-link" onClick={showNavbar}>
           About
         </Link>
-        <Link to="/reservation" className="nav-link">
+        <Link to="/reservation" className="nav-link" onClick={showNavbar}>
           Reservation
         </Link>
-        <Link to="/order" className="nav-link">
+        <Link to="/order" className="nav-link" onClick={showNavbar}>
           Order Online
         </Link>
         <Link to="/login">
-          <button className="login-button">Log In</button>
+          <button className="login-button" onClick={showNavbar}>Log In</button>
         </Link>
         <div className="nav-ctrl-btn nav-close" onClick={showNavbar}>
           <FaTimes />

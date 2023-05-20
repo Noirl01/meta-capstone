@@ -638,10 +638,12 @@ footer p {
   transition: all 0.2s;
   border: 0px;
   margin: 3em auto 3em auto;
+  cursor: pointer;
 }
 .reservation-buttons > button:disabled {
   background-color: var(--textColor);
   color: var(--cardColor);
+  cursor:auto;
 }
 .reservation-buttons > button:active:hover:not([disabled]) {
   background-color: var(--chromaCard);
@@ -706,7 +708,8 @@ footer p {
   white-space: nowrap;
   transition: 0.5s;
 }
-.input-box input:focus ~ label ,.input-box input:valid ~ label {
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
   color: var(--cardColor);
   transform: translateX(-5px) translateY(-1em);
   font-size: 1em;
@@ -721,11 +724,12 @@ footer p {
   align-items: center;
   background-color: var(--cardColor);
   border-radius: 16px;
-  color: var(--textColor)
+  color: var(--textColor);
 }
 .reservation-successful > p {
   font-size: 1.5em;
 }
+
 /* Animations */
 @keyframes svganimation {
   0% {

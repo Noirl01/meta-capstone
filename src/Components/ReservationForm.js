@@ -2,21 +2,44 @@ import React, { useEffect, useState } from "react";
 import FormFirstView from "./FormFirstView";
 import FormSecondView from "./FormSecondView";
 import FormThirdView from "./FormThirdView";
+import { useTime } from "../Context/TimeContext";
 import { ReactComponent as GuestsIcon } from "../assets/guests.svg";
 import { ReactComponent as BranchIcon } from "../assets/branch.svg";
 import { ReactComponent as TimeIcon } from "../assets/time.svg";
 import { ReactComponent as DateIcon } from "../assets/date.svg";
 import { ReactComponent as SeatingIcon } from "../assets/seating.svg";
 import { ReactComponent as OccasionIcon } from "../assets/occasion.svg";
+import { fetchAPI, submitAPI } from "../api.js";
 
 function ReservationForm({ currentView, setCurrentView, children }) {
   const [nextButtonText, setNextButtonText] = useState("Next");
-
+  const [avaliableTimes, dispatchTime] = useTime();
+  const [formSuccess, setFormSuccess] = useState(false)
   const nextButtonClick = (e) => {
     e.preventDefault();
     if (currentView === 1) {
-      console.log("Request Recieved");
+      const userReservation = {
+        guests: guests.currentValue,
+        date: date.rawDate,
+        time: time.currentValue,
+        branch: branch.currentValue,
+        occasion: occasion.currentValue,
+        seating: seating.currentValue,
+        name: name.currentValue,
+        phoneNumber: phoneNumber.currentValue,
+        comment: comment.currentValue,
+      };
+      const requestCondition = submitAPI(userReservation)
+      if(requestCondition){
+      console.log(requestCondition,"Reservation Successful", userReservation)
+      const action = {
+        type: "UPDATETIMES",
+        payload: time.currentValue
+      }
+      dispatchTime(action)
+      setFormSuccess(true)
       setCurrentView((prevState) => prevState + 1);
+    }
     } else {
       setCurrentView((prevState) => prevState + 1);
     }
@@ -44,15 +67,15 @@ function ReservationForm({ currentView, setCurrentView, children }) {
   const [time, setTime] = useState({
     icon: <TimeIcon />,
     placeHolder: "Time",
-    firstList: ["17:00", "18:00", "19:00"],
-    secondList: ["20:00", "21:00", "22:00"],
     currentValue: "",
+    dispatchTime,
   });
   const [date, setDate] = useState({
     icon: <DateIcon />,
     placeHolder: "Date",
-    firstList: ["17:00", "18:00", "19:00"],
+    firstList: [],
     currentValue: "",
+    rawDate: "",
   });
   const [seating, setSeating] = useState({
     icon: <SeatingIcon />,
@@ -81,6 +104,19 @@ function ReservationForm({ currentView, setCurrentView, children }) {
 
   const [buttonEnabled, setButtonEnabled] = useState(false);
 
+  // initializeTime useEffect
+  useEffect(() => {
+    if (date.rawDate) {
+      const data = fetchAPI(date.rawDate);
+      const action = { type: "INITIALIZETIME", payload: data };
+       dispatchTime(action);
+    }
+  }, [date.rawDate, dispatchTime]);
+useEffect(()=>{
+setTime((prevState)=>{
+  return {...prevState, ...avaliableTimes}
+})
+},[avaliableTimes])
   useEffect(() => {
     if (currentView === 0) setNextButtonText("Next");
     if (
@@ -99,7 +135,6 @@ function ReservationForm({ currentView, setCurrentView, children }) {
     }
     if (currentView === 1 && name.currentValue && phoneNumber.currentValue)
       setButtonEnabled(true);
-    console.log(phoneNumber);
   }, [
     currentView,
     guests,
@@ -108,6 +143,7 @@ function ReservationForm({ currentView, setCurrentView, children }) {
     date,
     seating,
     occasion,
+    avaliableTimes,
     name,
     phoneNumber,
   ]);
@@ -138,7 +174,7 @@ function ReservationForm({ currentView, setCurrentView, children }) {
         ""
       )}
       {currentView === 2 ? (
-        <FormThirdView formData={"formData"} setFormData={"setFormData"} />
+        <FormThirdView formSuccess={formSuccess} />
       ) : (
         ""
       )}

@@ -12,7 +12,10 @@ function FormSecondView({ formData, setFormData }) {
               return { ...prevState, currentValue: e.target.value };
             })
           }
+          autoComplete="off" 
           required
+          aria-label="name"
+          aria-required="true"
         />
         <label htmlFor="reserve-name">{formData.name.placeHolder}</label>
       </div>
@@ -26,7 +29,10 @@ function FormSecondView({ formData, setFormData }) {
               return { ...prevState, currentValue: e.target.value };
             })
           }
+          autoComplete="off" 
           required
+          aria-label="phone number"
+          aria-required="true"
         />
         <label htmlFor="reserve-phone">{formData.phoneNumber.placeHolder}</label>
       </div>
@@ -40,6 +46,9 @@ function FormSecondView({ formData, setFormData }) {
               return { ...prevState, currentValue: e.target.value };
             })
           }
+          autoComplete="off"
+          aria-label="additional comment"
+          aria-required="false"
         />
         <label htmlFor="reserve-comment">{formData.comment.placeHolder}</label>
       </div>
