@@ -1,6 +1,6 @@
 import React, {  useState } from "react";
 import restaurantImg from "../assets/restaurant.jpg";
-import ReservationForm from "./ReservationForm";
+import ReservationForm from "./BookingForm";
 
 function ReservePage() {
   const viewsArray = [
