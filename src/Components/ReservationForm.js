@@ -14,7 +14,7 @@ import { fetchAPI, submitAPI } from "../api.js";
 function ReservationForm({ currentView, setCurrentView, children }) {
   const [nextButtonText, setNextButtonText] = useState("Next");
   const [avaliableTimes, dispatchTime] = useTime();
-  const [formSuccess, setFormSuccess] = useState(false)
+  const [formSuccess, setFormSuccess] = useState(false);
   const nextButtonClick = (e) => {
     e.preventDefault();
     if (currentView === 1) {
@@ -29,17 +29,21 @@ function ReservationForm({ currentView, setCurrentView, children }) {
         phoneNumber: phoneNumber.currentValue,
         comment: comment.currentValue,
       };
-      const requestCondition = submitAPI(userReservation)
-      if(requestCondition){
-      console.log(requestCondition,"Reservation Successful", userReservation)
-      const action = {
-        type: "UPDATETIMES",
-        payload: time.currentValue
+      const requestCondition = submitAPI(userReservation);
+      if (requestCondition) {
+        console.log(
+          requestCondition,
+          "Reservation Successful",
+          userReservation
+        );
+        const action = {
+          type: "UPDATETIMES",
+          payload: time.currentValue,
+        };
+        dispatchTime(action);
+        setFormSuccess(true);
+        setCurrentView((prevState) => prevState + 1);
       }
-      dispatchTime(action)
-      setFormSuccess(true)
-      setCurrentView((prevState) => prevState + 1);
-    }
     } else {
       setCurrentView((prevState) => prevState + 1);
     }
@@ -92,10 +96,12 @@ function ReservationForm({ currentView, setCurrentView, children }) {
   const [name, setName] = useState({
     placeHolder: "Name",
     currentValue: "",
+    isValid: false,
   });
   const [phoneNumber, setPhoneNumber] = useState({
     placeHolder: "Phone Number",
     currentValue: "",
+    isValid: false,
   });
   const [comment, setComment] = useState({
     placeHolder: "Additional Comment",
@@ -109,14 +115,14 @@ function ReservationForm({ currentView, setCurrentView, children }) {
     if (date.rawDate) {
       const data = fetchAPI(date.rawDate);
       const action = { type: "INITIALIZETIME", payload: data };
-       dispatchTime(action);
+      dispatchTime(action);
     }
   }, [date.rawDate, dispatchTime]);
-useEffect(()=>{
-setTime((prevState)=>{
-  return {...prevState, ...avaliableTimes}
-})
-},[avaliableTimes])
+  useEffect(() => {
+    setTime((prevState) => {
+      return { ...prevState, ...avaliableTimes };
+    });
+  }, [avaliableTimes]);
   useEffect(() => {
     if (currentView === 0) setNextButtonText("Next");
     if (
@@ -133,8 +139,14 @@ setTime((prevState)=>{
       setButtonEnabled(false);
       setNextButtonText("Reserve");
     }
-    if (currentView === 1 && name.currentValue && phoneNumber.currentValue)
-      setButtonEnabled(true);
+    if (
+      currentView === 1 &&
+      name.currentValue &&
+      name.isValid &&
+      phoneNumber.currentValue &&
+      phoneNumber.isValid
+    )
+    setButtonEnabled(true);
   }, [
     currentView,
     guests,
@@ -173,11 +185,7 @@ setTime((prevState)=>{
       ) : (
         ""
       )}
-      {currentView === 2 ? (
-        <FormThirdView formSuccess={formSuccess} />
-      ) : (
-        ""
-      )}
+      {currentView === 2 ? <FormThirdView formSuccess={formSuccess} /> : ""}
 
       <div className="reservation-buttons">
         {currentView === 1 ? (

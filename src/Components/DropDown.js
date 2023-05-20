@@ -21,7 +21,7 @@ function DropDown({ data, setData, children }) {
         !!data.currentValue ? "dropdown drop-down--selected" : "dropdown"
       }
       onClick={toggleDropDown}
-      aria-label={data.placeHolder}
+      aria-label={`${data.placeHolder} on Click`}
       aria-required="true"
       data-testid="dropdown-test"
     >
