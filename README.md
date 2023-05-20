@@ -3,13 +3,14 @@
 A Web Based App for META Front-End Development Course
 The App features a Reservation Form and a Landing Page for The Little Lemon Restaurant
 
-Tools
+### Tools
 
 - Figma
 - VSCode
 - Chrome Devtools
+- Pesticide
 
-Main Libraries
+### Main Libraries
 
 - React
 - React Router
