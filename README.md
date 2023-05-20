@@ -54,7 +54,7 @@ This App was created using create-react-app therefore all commands is as follow.
 
 ## Project Directory Tree
 
-`├── README.md
+├── README.md
 ├── package-lock.json
 ├── package.json
 ├── public
@@ -136,4 +136,3 @@ This App was created using create-react-app therefore all commands is as follow.
     ├── main.css
     ├── reportWebVitals.js
     └── setupTests.js
-   `
